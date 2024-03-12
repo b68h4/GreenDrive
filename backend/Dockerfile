@@ -14,8 +14,6 @@ RUN dotnet publish -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
-RUN mkdir AuthCache
 COPY --from=publish /app/publish .
-COPY --from=build /src/AuthCache ./AuthCache
 
 ENTRYPOINT ["dotnet", "GreenDrive.dll"]
