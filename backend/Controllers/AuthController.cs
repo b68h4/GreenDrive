@@ -19,7 +19,6 @@ namespace GreenDrive.Controllers
     public class AuthController : Controller
     {
         private readonly IConfiguration _configuration;
-        private readonly string[] _scopes = { "openid", "email", "profile" };
 
         private DriveApiService svc;
 
