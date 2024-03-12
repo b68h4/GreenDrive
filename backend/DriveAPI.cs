@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Drive.v2;
 using Google.Apis.Drive.v2.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using GreenDrive.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -23,24 +26,41 @@ namespace GreenDrive
 
         public DriveService service { get; set; }
 
+        public GoogleAuthorizationCodeFlow flow { get; set; }
+
+        private GDriveConfiguration gDriveConf { get; set; }
+
         public DriveApiService(IConfiguration configuration)
         {
-            var gdriveConf = configuration.GetSection("GDrive");
+            gDriveConf = configuration.GetSection("GDrive").Get<GDriveConfiguration>();
+
             secrets = new ClientSecrets()
             {
-                ClientId = gdriveConf.GetValue<string>("ClientId"),
-                ClientSecret = gdriveConf.GetValue<string>("ClientSecret")
+                ClientId = gDriveConf.ClientId,
+                ClientSecret = gDriveConf.ClientSecret
             };
-            var auth = GoogleWebAuthorizationBroker.AuthorizeAsync(secrets, Scopes, gdriveConf.GetValue<string>("AppName"),
-                new CancellationToken(), new FileDataStore(gdriveConf.GetValue<string>("AuthFolder"), true), new LocalServerCodeReceiver()).Result;
 
-            service = new DriveService(new BaseClientService.Initializer()
+            flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
             {
-                HttpClientInitializer = auth,
-                ApplicationName = gdriveConf.GetValue<string>("AppName"),
-
+                ClientSecrets = secrets,
+                Scopes = Scopes,
+                DataStore = new FileDataStore(gDriveConf.AuthFolder, true)
             });
 
+            if (System.IO.File.Exists(Path.Combine(Environment.CurrentDirectory, gDriveConf.AuthFolder, "Google.Apis.Auth.OAuth2.Responses.TokenResponse-" + gDriveConf.AppName)))
+            {
+                var tokenResp = flow.LoadTokenAsync(gDriveConf.AppName, CancellationToken.None).Result;
+                SetupService(new UserCredential(flow, gDriveConf.AppName, tokenResp));
+            }
+        }
+
+        public void SetupService(UserCredential credential)
+        {
+            service = new DriveService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = gDriveConf.AppName,
+            });
         }
 
 

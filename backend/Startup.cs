@@ -34,6 +34,7 @@ namespace GreenDrive
             services.AddTransient<DownloadStorage>();
             services.AddTransient<Cache>();
             services.AddSingleton<DriveApiService>();
+            services.AddSingleton<AuthCheck>();
             services.AddControllers();
             services.AddMemoryCache();
             services.AddCors(options =>
@@ -69,6 +70,7 @@ namespace GreenDrive
             app.UseCors();
             app.UseAuthorization();
             app.UseMiddleware<Firewall>();
+            app.UseMiddleware<AuthCheck>();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
