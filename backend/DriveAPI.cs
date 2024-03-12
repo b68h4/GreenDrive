@@ -30,6 +30,8 @@ namespace GreenDrive
 
         private GDriveConfiguration gDriveConf { get; set; }
 
+        public string OneTimeToken { get; set; }
+
         public DriveApiService(IConfiguration configuration)
         {
             gDriveConf = configuration.GetSection("GDrive").Get<GDriveConfiguration>();
@@ -46,11 +48,15 @@ namespace GreenDrive
                 Scopes = Scopes,
                 DataStore = new FileDataStore(gDriveConf.AuthFolder, true)
             });
-
+            OneTimeToken = Guid.NewGuid().ToString("n");
             if (System.IO.File.Exists(Path.Combine(Environment.CurrentDirectory, gDriveConf.AuthFolder, "Google.Apis.Auth.OAuth2.Responses.TokenResponse-" + gDriveConf.AppName)))
             {
                 var tokenResp = flow.LoadTokenAsync(gDriveConf.AppName, CancellationToken.None).Result;
                 SetupService(new UserCredential(flow, gDriveConf.AppName, tokenResp));
+            }
+            else
+            {
+                Console.WriteLine($"Please goto to the following link for authorization: http://{{yourdomain}}/Api/Auth?token={OneTimeToken}");
             }
         }
 
@@ -62,7 +68,5 @@ namespace GreenDrive
                 ApplicationName = gDriveConf.AppName,
             });
         }
-
-
     }
 }

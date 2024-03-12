@@ -33,22 +33,30 @@ namespace GreenDrive.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login(string token)
         {
-
+            if (svc.service != null)
+            {
+                return Redirect("/Api/List");
+            }
+            if (token != svc.OneTimeToken)
+            {
+                return BadRequest("Invalid token, please try again with the correct token.");
+            }
             var redirectUri = new Uri($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Api/Auth/Callback");
-            Console.WriteLine(redirectUri.ToString());
             var authUri = svc.flow.CreateAuthorizationCodeRequest(redirectUri.ToString()).Build();
             return Redirect(authUri.AbsoluteUri);
         }
         [HttpGet("Callback")]
         public async Task<IActionResult> Callback(string code)
         {
+            if (svc.service != null)
+            {
+                return Redirect("/Api/List");
+            }
             var redirectUri = new Uri($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Api/Auth/Callback");
-            Console.WriteLine(code);
             var token = await svc.flow.ExchangeCodeForTokenAsync(gDriveConf.AppName, code, redirectUri.ToString(), CancellationToken.None);
             var credentials = new UserCredential(svc.flow, gDriveConf.AppName, token);
-
             svc.SetupService(credentials);
 
             return Redirect("/Api/List");
