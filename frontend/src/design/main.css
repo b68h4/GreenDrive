@@ -1,0 +1,33 @@
+.table-width {
+  max-width: 100%;
+  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
+
+.table-item {
+  cursor: pointer;
+}
+.table-row {
+  height: 85px;
+}
+.table-icon {
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.click-cursor {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .modtime {
+    display: none;
+  }
+}
+@media (min-width: 1500px) {
+  .table-width {
+    max-width: 70% !important;
+  }
+}

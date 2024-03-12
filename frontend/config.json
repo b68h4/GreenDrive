@@ -1,0 +1,81 @@
+{
+    "appName": "GreenDrive",
+    "apiUrl": "http://localhost:8081",
+    "language": "en_us",
+    "tg_ads": {
+        "enabled": false,
+        "channel_name": "Example Channel",
+        "channel_link": "https://t.me/xyz",
+        "group_name": "Example Group",
+        "group_link": "https://t.me/xyz"
+    },
+    "adsense": {
+        "enabled": false,
+        "pub_id": "examplePubId",
+        "ad_list": {
+            "main0_infeed": {
+                "id": "exampleAdSlot",
+                "layout_key": "exampleLayoutKey",
+                "format": "fluid"
+            },
+            "main1_normal": {
+                "id": "exampleAdSlot"
+            },
+            "player0_infeed": {
+                "id": "exampleAdSlot",
+                "layout_key": "exampleLayoutKey",
+                "format": "fluid"
+            },
+            "player1_normal": {
+                "id": "exampleAdSlot"
+            },
+            "reader0_infeed": {
+                "id": "exampleAdSlot",
+                "layout_key": "exampleLayoutKey",
+                "format": "fluid"
+            }
+        }
+    },
+    "gtag": {
+        "enabled": false,
+        "gtag_id": "G-EXAMPLE"
+    },
+    "language_strings": {
+        "tr_tr": {
+            "file": "Dosya",
+            "change_time": "Değiştirme Zamanı",
+            "size": "Boyut",
+            "about": "Hakkında",
+            "showing_items": "Gösterilen Ögeler",
+            "uploaded_on": "Yükleme Tarihi",
+            "doesnt_show_welcome": "Hoşgeldin mesajını gösterme",
+            "used_techs": "Kullanılan Teknolojiler",
+            "developer": "Geliştirici",
+            "join": "Katıl",
+            "ok": "TAMAM",
+            "our_telegram_channels": "Telegram Kanallarımız",
+            "no_longer_exists": "Görünüşe göre artık olmayan bir linke ulaştınız.",
+            "go_home": "Ana sayfaya gitmek istiyorum!",
+            "do_not_show": "Bir daha gösterme.",
+            "home": "Ana Sayfa"
+        },
+        "en_us": {
+            "file": "File",
+            "change_time": "Change Time",
+            "size": "Size",
+            "about": "About",
+            "showing_items": "Showing Items",
+            "uploaded_on": "Uploaded On",
+            "doesnt_show_welcome": "Don't Show Welcome Message",
+            "do_not_show": "Do not show again.",
+            "used_techs": "Used Technologies",
+            "developer": "Developer",
+            "join": "Join",
+            "ok": "OK",
+            "our_telegram_channels": "Our Telegram Channels",
+            "no_longer_exists": "It seems you've reached a link that no longer exists.",
+            "go_home": "I want to go home!",
+            "home": "Home"
+        }
+    }
+}

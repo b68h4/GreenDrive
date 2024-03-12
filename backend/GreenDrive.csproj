@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="data\**" />
+    <Content Remove="data\**" />
+    <EmbeddedResource Remove="data\**" />
+    <None Remove="data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreRateLimit" Version="4.0.1" />
+    <PackageReference Include="Google.Apis.Drive.v2" Version="1.67.0.3296" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Pastel" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>

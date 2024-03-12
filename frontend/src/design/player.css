@@ -1,0 +1,12 @@
+#plyrct {
+  max-width: 1185px !important;
+}
+:root {
+  --plyr-color-main: #00ad5f;
+  --plyr-control-radius: 15px;
+  --plyr-menu-radius: 12px;
+}
+.player-section {
+  float: left;
+  margin-left: 3px;
+}

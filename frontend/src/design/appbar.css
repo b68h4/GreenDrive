@@ -1,0 +1,8 @@
+.search-bar {
+  max-width: 20%;
+}
+@media only screen and (max-width: 1000px) {
+  .search-bar {
+    max-width: 50%;
+  }
+}
