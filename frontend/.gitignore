@@ -2,7 +2,6 @@
 *node_modules*
 dist/*
 dist.bck/*
-public/pdfjs/*
 rep.txt
 # local env files
 .env.local
