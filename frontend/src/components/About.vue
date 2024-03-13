@@ -11,7 +11,7 @@
             </div>
             <div class="pa-4 text-center">
                 <p>{{ strings.developer }}:</p>
-                <a href="https://t.me/b68h4" target="_blank">@b68h4</a>
+                <a href="https://github.com/b68h4" target="_blank">@b68h4</a>
             </div>
             <v-card-actions>
                 <v-spacer></v-spacer>
