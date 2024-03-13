@@ -39,7 +39,7 @@ namespace GreenDrive.Controllers
                     if (!result.Error)
                     {
                         string conlength = resp.Content.Headers.ContentLength.ToString();
-                        Response.Headers.Add("Content-Disposition", $"attachment; filename=\"{meta.OriginalFilename}\"");
+                        Response.Headers.Add("Content-Disposition", $"attachment; filename=\"{meta.Title}\"");
                         if (!string.IsNullOrEmpty(range))
                         {
                             Response.StatusCode = 206;
@@ -57,7 +57,7 @@ namespace GreenDrive.Controllers
                             {
                                 Response.Headers.Add("Content-Length", conlength);
                             }
-                            return File(await resp.Content.ReadAsStreamAsync(), meta.MimeType, meta.OriginalFilename, true);
+                            return File(await resp.Content.ReadAsStreamAsync(), meta.MimeType, meta.Title, true);
                         }
                     }
                     else

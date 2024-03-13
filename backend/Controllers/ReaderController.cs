@@ -39,7 +39,7 @@ namespace GreenDrive.Controllers
                     {
                         Response.Headers.Add("Content-Length", conlength);
                     }
-                    return File(await resp.Content.ReadAsStreamAsync(), "application/pdf", meta.OriginalFilename, true);
+                    return File(await resp.Content.ReadAsStreamAsync(), "application/pdf", meta.Title, true);
                 }
                 else
                 {

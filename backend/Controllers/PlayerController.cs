@@ -52,7 +52,7 @@ namespace GreenDrive.Controllers
                         {
                             Response.Headers.Add("Content-Length", conlength);
                         }
-                        return File(await resp.Content.ReadAsStreamAsync(), meta.MimeType, meta.OriginalFilename, true);
+                        return File(await resp.Content.ReadAsStreamAsync(), meta.MimeType, meta.Title, true);
                     }
                 }
                 else
