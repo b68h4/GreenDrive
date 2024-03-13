@@ -59,7 +59,7 @@ Greendrive is a lightweight web-based file manager. It allows users to share any
 
 #### Clone repo to local
 
-```shell
+```console
 foo@bar:~$ git clone https://github.com/b68h4/GreenDrive
 ```
 
