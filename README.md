@@ -11,6 +11,8 @@
 
 Greendrive is a lightweight web-based file manager. It allows users to share any file from Google Drive for download or display previews online through its integrated plugins.
 
+### Demo live on: [GreenDrive - Demo](https://greendrive-demo.vercel.app/)
+
 ## Features
 
 -   For backend
@@ -68,7 +70,6 @@ foo@bar:~$ git clone https://github.com/b68h4/GreenDrive
 ### How can I get folder and shared drive id's from Google drive?
 
 ![](https://github.com/b68h4/GreenDrive/blob/main/assets/howtogetfolderid.gif)
-
 
 ### Backend configuration
 
