@@ -47,7 +47,9 @@ Greendrive is a lightweight web-based file manager. It allows users to share any
 -   Go to the [Google Cloud Console](https://console.cloud.google.com/apis)
 -   If you don't have a project, create one and then go to the **APIs & Services** tab.
 -   From the library, enable the **Google Drive API**.
--   Then, from the **Credentials** section, create credentials for a **Desktop application**.
+-   Then, from the **Credentials** section, create credentials for a **Web application**.
+-   After selecting the Web application option, you should see a field labeled Authorized redirect URIs.
+    -   Add the backend URI to this field: `https://{yourdomain}/Api/Auth/Callback` (ex: `https://yourdeployment-1234.up.railway.app/Api/Auth/Callback`)
 -   In the **OAuth consent screen** page, enter the following information:
     -   App name: Enter a name for your application.
     -   User type: Select the type of users that will be using your application.
@@ -102,9 +104,10 @@ foo@bar:~$ git clone https://github.com/b68h4/GreenDrive
 cd backend
 ```
 
--   Run the command with the Railway CLI:
+-   Run these commands with the Railway CLI:
 
 ```
+railway link
 railway up -s <yourservice>
 ```
 
