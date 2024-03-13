@@ -63,6 +63,11 @@ Greendrive is a lightweight web-based file manager. It allows users to share any
 foo@bar:~$ git clone https://github.com/b68h4/GreenDrive
 ```
 
+### How can I get folder and shared drive id's from Google drive?
+
+![](https://github.com/b68h4/GreenDrive/blob/main/assets/howtogetfolderid.gif)
+
+
 ### Backend configuration
 
 -   appsettings.json (_For production use this_)
@@ -161,6 +166,8 @@ When you open this url in your browser, it will direct you to the google login p
 cd frontend
 vercel
 ```
+
+_Your project should now be accessible from the domain of the platform you deployed or via localhost._
 
 ## About of the project
 
