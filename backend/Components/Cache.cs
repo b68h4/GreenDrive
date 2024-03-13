@@ -19,7 +19,7 @@ namespace GreenDrive.Components
 
         public List<DriveResult> CreateCache(string id, List<DriveResult> data)
         {
-            return store.Set(id, data, DateTime.Now.AddHours(6));
+            return store.Set(id, data, DateTime.Now.AddHours(1));
         }
 
         public List<DriveResult> GetCache(string id)
