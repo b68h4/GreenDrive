@@ -56,7 +56,7 @@ namespace GreenDrive
             }
             else
             {
-                Console.WriteLine($"Please goto to the following link for authorization: http://{{yourdomain}}/Api/Auth?token={OneTimeToken}");
+                Console.WriteLine($"Please go to the following link for authorization: http://{{yourdomain}}/Api/Auth?token={OneTimeToken}");
             }
         }
 
