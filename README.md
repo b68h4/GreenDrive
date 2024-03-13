@@ -86,7 +86,7 @@ foo@bar:~$ git clone https://github.com/b68h4/GreenDrive
         "SharedDriveId": "", // <- If the shared drive feature is enabled, put the shared drive Id you want to share here.
         "AppName": "GreenDrive",
         "AuthFolder": "AuthCache"
-    },
+    }
 ```
 
 -   **NOTE: Please do not disable MainFolderCheck even though it may slow down api responses! If you disable it, people who somehow get the ID of another folder in your Google Drive can access it with simple hacks via GreenDrive.**
@@ -120,7 +120,7 @@ railway up -s <yourservice>
 
 #### Google authorization
 
-Backend will give you a token url path for verification on the first run, you can see it locally in the console or in the logs of other providers.
+Backend will give you a token included url path for verification on the first run, you can see it locally in the console or in the logs of other providers.
 
 It should look like this:
 
