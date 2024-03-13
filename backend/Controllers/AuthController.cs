@@ -42,7 +42,8 @@ namespace GreenDrive.Controllers
             {
                 return BadRequest("Invalid token, please try again with the correct token.");
             }
-            var redirectUri = new Uri($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Api/Auth/Callback");
+            var redirectUri = GetRedirectUri();
+
             var authUri = svc.flow.CreateAuthorizationCodeRequest(redirectUri.ToString()).Build();
             return Redirect(authUri.AbsoluteUri);
         }
@@ -53,12 +54,24 @@ namespace GreenDrive.Controllers
             {
                 return Redirect("/Api/List");
             }
-            var redirectUri = new Uri($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Api/Auth/Callback");
+            var redirectUri = GetRedirectUri();
             var token = await svc.flow.ExchangeCodeForTokenAsync(gDriveConf.AppName, code, redirectUri.ToString(), CancellationToken.None);
             var credentials = new UserCredential(svc.flow, gDriveConf.AppName, token);
             svc.SetupService(credentials);
 
             return Redirect("/Api/List");
+        }
+
+        internal Uri GetRedirectUri()
+        {
+            var scheme = HttpContext.Request.Scheme;
+
+            if (scheme == "http" && Request.Headers["X-Forwarded-For"].ToString() != null)
+            {
+                scheme = "https";
+            }
+            var redirectUri = new Uri($"{scheme}://{HttpContext.Request.Host}/Api/Auth/Callback");
+            return redirectUri;
         }
     }
 }
