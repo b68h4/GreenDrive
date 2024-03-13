@@ -119,7 +119,7 @@ It should look like this:
 http://{yourdomain}/Api/Auth?token=XXXYYYZZZ
 ```
 
-Let's assume you deployed the backend to railway.
+Let's assume you deployed the backend to **Railway**.
 
 Your domain is probably like this:
 
@@ -133,7 +133,7 @@ Concatenate the URL path you received from the console and make it like this:
 https://x-y-z-1234.up.railway.app/Api/Auth?token=XXXYYYZZ
 ```
 
-When you open this url in your browser, it will direct you to the google login page. Give the necessary permissions for google drive on this page and complete the login. Then, if the process is successful, it will take you to the `/Api/List` url. If you see the contents of the folder you specified as mainFolderId in json format, congratulations, you have completed logging in.
+When you open this url in your browser, it will direct you to the google login page. Give the necessary permissions for google drive on this page and complete the login. Then, if the process is successful, it will take you to the `/Api/List` url. If you see the contents of the folder you specified as mainFolderId in json format, congratulations, you have completed authorization.
 
 ### Frontend configuration
 
@@ -151,3 +151,30 @@ When you open this url in your browser, it will direct you to the google login p
 }
 
 ```
+
+#### Deploy frontend to vercel (optional)
+
+-   Navigate to the frontend folder
+-   Run the Vercel CLI with the vercel command and follow the instructions to deploy your application
+
+```
+cd frontend
+vercel
+```
+
+## About of the project
+
+_This project was developed years ago for a small telegram channel, but is now open source in its refactored form._
+
+-   First development year: 2020-2021 (known as CoderatorDepo)
+-   Refactoring year: 2024
+
+## License
+
+This project uses the GNU Affero General Public License Version 3 (GNU-AGPL-3.0)
+
+## Disclaimer
+
+The developer disclaims any responsibility or liability for the use of this project involving illegal content, copyright infringement, or any unlawful activity. Users are solely responsible for ensuring compliance with all applicable laws and regulations.
+
+Furthermore, the developer shall not be held liable for any damages, losses, or consequences arising from the use or misuse of this project. This project is provided on an "as is" and "as available" basis, without any warranties, express or implied.
