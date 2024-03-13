@@ -9,7 +9,7 @@
   <hr/>
 </div>
 
-Greendrive is a lightweight web-based file manager. It allows users to share any file from Google Drive for download or display previews online through its integrated plugins.
+Greendrive is a lightweight web-based file manager. It allows users to access any file from Google Drive for download or display previews online through its integrated plugins.
 
 ### Demo live on: [GreenDrive - Demo](https://greendrive-demo.vercel.app/)
 
