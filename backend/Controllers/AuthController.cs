@@ -12,6 +12,8 @@ using GreenDrive;
 using GreenDrive.Models;
 using System.Threading;
 using System;
+using System.Reflection.Emit;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace GreenDrive.Controllers
 {
@@ -59,7 +61,10 @@ namespace GreenDrive.Controllers
             var token = await svc.flow.ExchangeCodeForTokenAsync(gDriveConf.AppName, code, redirectUri.ToString(), CancellationToken.None);
             var credentials = new UserCredential(svc.flow, gDriveConf.AppName, token);
             svc.SetupService(credentials);
-
+            if (token.RefreshToken == "")
+            {
+                return StatusCode(500, "Application not have a refresh token yet. Authorization successful but application only runnable until access token expire time . Please fix this problem.");
+            }
             return Redirect("/Api/List");
         }
 

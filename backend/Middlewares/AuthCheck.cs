@@ -25,7 +25,7 @@ namespace GreenDrive.Middlewares
 
         public async Task Invoke(HttpContext con)
         {
-            if (svc.service == null && !con.Request.Path.Value.StartsWith("/Api/Auth"))
+            if (svc.service == null && !con.Request.Path.Value.StartsWith("/Api/Auth") && !svc.CheckCache())
             {
                 con.Response.StatusCode = 403;
                 await con.Response.WriteAsync("Unauthorized, please login.");
