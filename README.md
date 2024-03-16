@@ -173,7 +173,7 @@ vercel
 
 _Your project should now be accessible from the domain of the platform you deployed or via localhost._
 
-## About of the project
+## About the project
 
 _This project was developed years ago for a small telegram channel, but is now open source in its refactored form._
 
