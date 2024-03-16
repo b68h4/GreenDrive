@@ -42,7 +42,7 @@ namespace GreenDrive.Controllers
             }
             if (token != svc.OneTimeToken)
             {
-                return BadRequest("Invalid token, please try again with the correct token.");
+                return BadRequest("Invalid token, please try again using the correct token.");
             }
             var redirectUri = GetRedirectUri();
 
@@ -63,7 +63,7 @@ namespace GreenDrive.Controllers
             svc.SetupService(credentials);
             if (token.RefreshToken == "")
             {
-                return StatusCode(500, "Application not have a refresh token yet. Authorization successful but application only runnable until access token expire time . Please fix this problem.");
+                return StatusCode(500, "Application does not have a refresh token. Authentication is successful, but the application will run only until the token expires. Please fix this problem.");
             }
             return Redirect("/Api/List");
         }
