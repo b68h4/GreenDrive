@@ -34,11 +34,10 @@ namespace GreenDrive.Components
 
                 return data;
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
-
         }
     }
 }

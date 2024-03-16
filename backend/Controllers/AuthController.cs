@@ -32,7 +32,7 @@ namespace GreenDrive.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Login(string token)
+        public IActionResult Login(string token)
         {
             if (svc.service != null)
             {
@@ -55,6 +55,7 @@ namespace GreenDrive.Controllers
                 return Redirect("/Api/List");
             }
             var redirectUri = GetRedirectUri();
+
             var token = await svc.flow.ExchangeCodeForTokenAsync(gDriveConf.AppName, code, redirectUri.ToString(), CancellationToken.None);
             var credentials = new UserCredential(svc.flow, gDriveConf.AppName, token);
             svc.SetupService(credentials);
@@ -66,7 +67,7 @@ namespace GreenDrive.Controllers
         {
             var scheme = HttpContext.Request.Scheme;
 
-            if (scheme == "http" && Request.Headers["X-Forwarded-For"].ToString() != null)
+            if (scheme == "http" && Request.Headers["X-Forwarded-For"].ToString() != "")
             {
                 scheme = "https";
             }
