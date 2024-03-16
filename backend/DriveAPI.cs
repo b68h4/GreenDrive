@@ -49,7 +49,7 @@ namespace GreenDrive
                 ClientSecrets = secrets,
                 Scopes = Scopes,
                 DataStore = new FileDataStore(gDriveConf.AuthFolder, true),
-                Prompt = "consent" // This forces the consent screen to appear every auth time and get a refresh token
+                Prompt = "consent" // This forces the consent screen to appear on every auth and get a refresh token
             });
             OneTimeToken = Guid.NewGuid().ToString("n");
             if (CheckCache() && FirstTime)

@@ -64,7 +64,7 @@ namespace GreenDrive.Controllers
             }
             else
             {
-                return Content("Error with getting media!, Reason: data blank");
+                return Content("Error while getting media!, Reason: data blank");
             }
         }
     }

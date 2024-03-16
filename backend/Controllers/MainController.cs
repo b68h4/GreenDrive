@@ -61,7 +61,7 @@ namespace GreenDrive.Controllers
                     var isInMain = await ApiBase.IsInMainFolder(svc, id, gdriveConf.MainFolderId);
                     if (!isInMain)
                     {
-                        return "Requested item is not child of main folder.";
+                        return "Requested item is not a child of the main folder.";
                     }
                 }
 
@@ -117,7 +117,7 @@ namespace GreenDrive.Controllers
                 var isInMain = await ApiBase.IsInMainFolder(svc, id, gdriveConf.MainFolderId);
                 if (!isInMain)
                 {
-                    return "Requested item is not child of main folder.";
+                    return "Requested item is not a child of the main folder.";
                 }
             }
             var req = svc.Files.Get(id);
