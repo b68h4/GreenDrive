@@ -1,0 +1,13 @@
+version = 1
+
+exclude_patterns = ["public/pdfjs/**"]
+
+[[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  plugins = ["vue"]
+  environment = [
+    "nodejs",
+    "browser"
+  ]
